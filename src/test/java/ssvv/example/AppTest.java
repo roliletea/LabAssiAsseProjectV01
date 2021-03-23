@@ -17,6 +17,8 @@ import validation.StudentValidator;
 import validation.TemaValidator;
 import validation.Validator;
 
+import java.util.ArrayList;
+
 /**
  * Unit test for simple App.
  */
@@ -46,6 +48,68 @@ public class AppTest
         assertTrue(service.saveStudent("23", "Samantha", 937) == 0);
         assertEquals(fileRepository1.findOne("23").getNume(), "Samantha");
 
+    }
+
+    public void deleteAllStudents() {
+        ArrayList<String> ids = new ArrayList();
+        service.findAllStudents().forEach(student -> ids.add(student.getID()));
+        for (int i = 0; i < ids.size(); i++) {
+            service.deleteStudent(ids.get(i));
+        }
+    }
+
+    //BBT for addStudentRepo
+
+    @Test
+    public void saveStudent00() {
+        deleteAllStudents();
+        int result = service.saveStudent("10", "Steve", 923);
+
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void saveStudent01() {
+        deleteAllStudents();
+        int result = service.saveStudent("", "Mary", 922);
+
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void saveStudent02() {
+        deleteAllStudents();
+        int result = service.saveStudent(null, "Mary", 922);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void saveStudent03() {
+        deleteAllStudents();
+        int result = service.saveStudent("2", "", 922);
+
+        assertEquals(0, result);
+    }
+    @Test
+    public void saveStudent04() {
+        deleteAllStudents();
+        int result = service.saveStudent("4", "Mary", 109);
+
+        assertEquals(0, result);
+    }
+    @Test
+    public void saveStudent05() {
+        deleteAllStudents();
+        int result = service.saveStudent("5", "Mary", 111);
+
+        assertEquals(1, result);
+    }
+    @Test
+    public void saveStudent06() {
+        deleteAllStudents();
+        int result = service.saveStudent("9", "Mary", 939);
+
+        assertEquals(0, result);
     }
 
     @Test
