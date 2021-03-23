@@ -123,9 +123,20 @@ public class AppTest
     @Test
     public void addTemaRepo(){
 
-        assertTrue(service.saveTema("5", "test", 7, 5) == 0);
+        assertEquals(0, service.saveTema("5", "test", 7, 5));
         assertEquals(fileRepository2.findOne("5").getDescriere(), "test");
 
+    }
+
+    @Test
+    public void addAssignment00(){
+        int result = service.saveTema("4", "descriere", 5, 2);
+        assertEquals(0, result);
+    }
+    @Test
+    public void addAssignment01(){
+        int result = service.saveTema("", "descriere", 5, 2);
+        assertEquals(1, result);
     }
 
     /**
