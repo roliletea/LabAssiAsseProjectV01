@@ -113,6 +113,14 @@ public class AppTest
     }
 
     @Test
+    public void saveStudent07(){
+        deleteAllStudents();
+        int result = service.saveStudent("12", "Alice", 934);
+
+        assertEquals(1, result);
+    }
+
+    @Test
     public void addTemaRepo(){
 
         assertTrue(service.saveTema("5", "test", 7, 5) == 0);
