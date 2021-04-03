@@ -142,7 +142,7 @@ public class AppTest
     }
 
     @Test
-    public void addAssingment01() {
+    public void addAssingment02() {
         int result = service.saveTema("3", "", 5, 2);
         assertEquals(1, result);
     }
