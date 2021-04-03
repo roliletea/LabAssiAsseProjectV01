@@ -113,7 +113,7 @@ public class AppTest
     }
 
     @Test
-    public void saveStudent07(){
+    public void saveStudent07() {
         deleteAllStudents();
         int result = service.saveStudent("12", "Alice", 934);
 
@@ -121,35 +121,29 @@ public class AppTest
     }
 
     @Test
-    public void addAssignment00(){
-        int result = service.saveTema("4", "descriere", 5, 2);
-
-        assertEquals(0, result);
-    }
-
-    @Test
-    public void addAssignment01(){
-        int result = service.saveTema("", "descriere", 5, 2);
-
-        assertEquals(1, result);
-    }
-
-    @Test
-    public void addTemaRepo(){
+    public void addTemaRepo() {
 
         assertEquals(0, service.saveTema("5", "test", 7, 5));
         assertEquals(fileRepository2.findOne("5").getDescriere(), "test");
 
     }
 
+    // WBT for addAssignment
+
     @Test
-    public void addAssignment00(){
+    public void addAssignment00() {
         int result = service.saveTema("4", "descriere", 5, 2);
         assertEquals(0, result);
     }
     @Test
-    public void addAssignment01(){
+    public void addAssignment01() {
         int result = service.saveTema("", "descriere", 5, 2);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void addAssingment01() {
+        int result = service.saveTema("3", "", 5, 2);
         assertEquals(1, result);
     }
 
