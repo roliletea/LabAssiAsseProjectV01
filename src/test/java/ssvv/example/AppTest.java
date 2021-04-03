@@ -166,6 +166,20 @@ public class AppTest
     }
 
     /**
+     * trying to add the same entity twice
+     */
+    @Test
+    public void addAssignment_saveTema00(){
+        int result;
+        result = service.saveTema("10", "very nice description", 5, 2);
+        int result2;
+        result2 = service.saveTema("10", "very nice description", 5, 2);
+
+        // result and result2 should not be equal because entities.putIfAbsent should return null on duplicate entity
+        assertNotEquals(result, result2 );
+    }
+
+    /**
      * Rigorous Test :-     )
      */
     @Test
