@@ -147,6 +147,24 @@ public class AppTest
         assertEquals(1, result);
     }
 
+    @Test
+    public void addAssingment03() {
+        int result = service.saveTema("5", "descriere", 0, 3);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void addAssignment04() {
+        int result = service.saveTema("2", "descriere", 5, 10);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void addAssignment05() {
+        int result = service.saveTema("1", "descriere", 9, 6);
+        assertEquals(0, result);
+    }
+
     /**
      * Rigorous Test :-     )
      */
