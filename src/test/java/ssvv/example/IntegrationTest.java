@@ -3,6 +3,7 @@ package ssvv.example;
 import static org.junit.Assert.*;
 
 import domain.Nota;
+import domain.Pair;
 import domain.Student;
 import domain.Tema;
 import org.junit.Before;
@@ -53,6 +54,14 @@ public class IntegrationTest {
         }
     }
 
+    public void deleteAllGrades(){
+        ArrayList<Pair<String,String>> ids = new ArrayList();
+        service.findAllNote().forEach(nota -> ids.add(nota.getID()));
+        for (int i = 0; i < ids.size(); i++) {
+            service.deleteNota(ids.get(i));
+        }
+    }
+
 
     @Test
     public void addAssignmentIntegration(){
@@ -70,7 +79,7 @@ public class IntegrationTest {
 
     @Test
     public void addGradeIntegration(){
-
+        this.deleteAllGrades();
         int result = service.saveNota("11", "5", 6.0, 4, "testing");
         assertEquals(0, result);
     }
