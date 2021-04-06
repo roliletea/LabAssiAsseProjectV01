@@ -135,6 +135,7 @@ public class AppTest
         int result = service.saveTema("4", "descriere", 5, 2);
         assertEquals(0, result);
     }
+
     @Test
     public void addAssignment01() {
         int result = service.saveTema("", "descriere", 5, 2);
@@ -178,6 +179,9 @@ public class AppTest
         // result and result2 should not be equal because entities.putIfAbsent should return null on duplicate entity
         assertNotEquals(result, result2 );
     }
+
+
+
 
     /**
      * Rigorous Test :-     )
