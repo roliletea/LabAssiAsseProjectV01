@@ -42,4 +42,18 @@ public class IntegrationTest {
         int result = service.saveTema("4", "descriere", 5, 2);
         assertEquals(0, result);
     }
+
+    @Test
+    public void addStudentIntegration(){
+        int result = service.saveStudent("10", "Steve", 923);
+
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void addGradeIntegration(){
+        int result = service.saveNota("10", "4", 10, 4, "testing");
+
+        assertEquals(0, result);
+    }
 }
