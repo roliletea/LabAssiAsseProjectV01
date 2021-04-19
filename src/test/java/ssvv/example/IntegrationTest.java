@@ -79,10 +79,8 @@ public class IntegrationTest {
 
     @Test
     public void addGradeIntegration(){
-        int result = service.saveTema("5", "descriere", 5, 2);
-        result = service.saveStudent("11", "Steve", 923);
         this.deleteAllGrades();
-        result = service.saveNota("11", "5", 6.0, 4, "testing");
+        int result = service.saveNota("11", "5", 6.0, 4, "testing");
         assertEquals(0, result);
     }
 
@@ -92,4 +90,23 @@ public class IntegrationTest {
         addStudentIntegration();
         addGradeIntegration();
     }
+
+    @Test
+    public void topDown_addStudent(){
+        this.addStudentIntegration();
+    }
+
+    @Test
+    public void topDown_addAssignment(){
+        this.addStudentIntegration();
+        this.addAssignmentIntegration();
+    }
+
+    @Test
+    public void topDown_addGrade(){
+        this.addStudentIntegration();
+        this.addAssignmentIntegration();
+        this.addGradeIntegration();
+    }
+
 }
